@@ -1,0 +1,34 @@
+import type { Preset } from '@unocss/core'
+import type { PresetMiniOptions, Theme } from '@unocss/preset-mini'
+import { rules, shortcuts, theme, variants } from '@unocss/preset-wind'
+import { VarPrefixPostprocessor, preflights } from '@unocss/preset-mini'
+import { variantColorMix } from './_variants/mix'
+
+export type { Theme }
+
+export interface PresetHDOptions extends PresetMiniOptions {}
+
+export const presetHD = (options: PresetHDOptions = {}): Preset<Theme> => {
+  options.dark = options.dark ?? 'class'
+  options.attributifyPseudo = options.attributifyPseudo ?? false
+  options.preflight = options.preflight ?? true
+
+  return {
+    name: '@mesh/uno-preset-mesh',
+    theme,
+    rules,
+    shortcuts,
+    variants: [
+      ...variants(options),
+      variantColorMix,
+    ],
+    options,
+    postprocess: options.variablePrefix && options.variablePrefix !== 'hd-'
+      ? VarPrefixPostprocessor(options.variablePrefix)
+      : undefined,
+    preflights: options.preflight ? preflights : [],
+    prefix: options.prefix,
+  }
+}
+
+export default presetHD

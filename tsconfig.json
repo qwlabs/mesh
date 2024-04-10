@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationDir": "./types",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "types": ["node"],
+    "paths": {
+      "@mesh/apollo": ["./packages/apollo/src/index.ts"],
+      "@mesh/uno-preset-mesh": ["./packages/uno-preset-mesh/src/index.ts"],
+      "@mesh/unplugin-vue-components": ["./packages/unplugin-vue-components/src/index.ts"],
+      "@mesh/vue": ["./packages/vue/src/index.ts"],
+      "@mesh/ui": ["./packages/ui/src/index.ts"],
+    }
+  },
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/play/**"
+  ]
+}

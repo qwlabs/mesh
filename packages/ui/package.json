@@ -1,0 +1,50 @@
+{
+  "name": "@mesh/ui",
+  "version": "0.0.1",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./es": "./es/index.js",
+    "./lib": "./lib/index.js",
+    "./es/*.mjs": "./es/*.js",
+    "./es/*": "./es/*.js",
+    "./lib/*.js": "./lib/*.js",
+    "./lib/*": "./lib/*.js",
+    "./*": "./*"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "build:unbuild": "unbuild",
+    "build:vite": "vite build && pnpm run generate:types",
+    "build:rollup": "rollup --config rollup.config.ts --configPlugin typescript",
+    "generate:types": "pnpm run generate:es:types && pnpm run generate:lib:types",
+    "generate:es:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./es",
+    "generate:lib:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./lib",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "@mesh/vue": "workspace:*",
+    "@vueuse/core": "*",
+    "ant-design-vue": "*",
+    "vue": "*",
+    "vue-types": "*"
+  },
+  "author": "qwlabs",
+  "homepage": "http://git.handao.cloud/infra/hd-design/-/blob/ui/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+http://git.handao.cloud/infra/hd-design.git",
+    "directory": "packages/ui"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}

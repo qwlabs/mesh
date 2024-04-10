@@ -1,0 +1,41 @@
+{
+  "name": "@mesh/unplugin-vue-components",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./es": "./es/index.js",
+    "./lib": "./lib/index.js",
+    "./es/*.mjs": "./es/*.js",
+    "./es/*": "./es/*.js",
+    "./lib/*.js": "./lib/*.js",
+    "./lib/*": "./lib/*.js",
+    "./*": "./*"
+  },
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "unbuild": "*",
+    "unplugin-vue-components": "*"
+  },
+  "author": "qwlabs",
+  "homepage": "http://git.handao.cloud/infra/hd-design/-/blob/unplugin-vue-components/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+http://git.handao.cloud/infra/hd-design.git",
+    "directory": "packages/unplugin-vue-components"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
